@@ -32,7 +32,7 @@ Ngân sách theo hồ sơ đánh dấu tiền nhà, điện nước và thuốc 
 
 **Chấm đối chiếu:** Nguyễn Quang Hiệp chấm độc lập 5 output minh họa và khớp 5/5 với bảng chấm đối chiếu đã chuẩn bị, vượt ngưỡng 4/5. Kết quả theo mã câu: B01 = 1, B02 = 0, B05 = 1, B07 = 0, B08 = 1. Đây là bài chấm thử trước Lượt 1.
 
-**Chuẩn "đạt" đề xuất** (chốt trước 19:30 Thứ Sáu 27/11). Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`.
+**Chuẩn "đạt"** (chốt trước 19:30 Thứ Sáu 27/11): Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`.
 
 ## 4. Lệnh
 

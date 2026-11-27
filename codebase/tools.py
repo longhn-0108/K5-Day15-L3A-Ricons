@@ -1,9 +1,7 @@
 """Công cụ của bài toán cảnh báo vượt ngân sách & gợi ý cắt giảm (Track E).
 
 Mỗi công cụ có @tool và docstring ghi đủ 4 ý: tên · input · output · có tác động ra ngoài không.
-Khi chưa có file dữ liệu trong `data/` (trước khi thành viên phụ trách dữ liệu đẩy lên), công cụ dùng
-bộ dữ liệu mẫu dự phòng (mock) để khung `python run.py` vẫn đi hết luồng trước CP2 đúng yêu cầu BTC.
-Khi đã có `data/budgets.json` và `data/transactions.csv`, công cụ tự động đọc từ `data/`.
+Đọc trực tiếp từ `data/budgets.json` và `data/transactions.csv` (lọc giao dịch tính đến hết ngày `current_day`).
 """
 import csv
 import datetime
@@ -16,49 +14,29 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(ROOT, "data")
 ACTION_LOG = os.path.join(DATA_DIR, "user_actions.jsonl")
 
-MOCK_BUDGETS = {
-    "user_van_phong": {
-        "label": "Nhân viên văn phòng trẻ (mock khung CP2)",
-        "categories": {
-            "an_uong": {"name": "Ăn uống", "limit": 3000000, "essential": False},
-            "ca_phe_tra_sua": {"name": "Cà phê & Trà sữa", "limit": 800000, "essential": False},
-            "di_chuyen": {"name": "Di chuyển", "limit": 1000000, "essential": False},
-            "mua_sam": {"name": "Mua sắm online", "limit": 1500000, "essential": False},
-            "tien_nha": {"name": "Tiền thuê nhà", "limit": 4500000, "essential": True},
-            "dien_nuoc": {"name": "Điện nước & Internet", "limit": 600000, "essential": True},
-            "thuoc_men": {"name": "Y tế & Thuốc men", "limit": 500000, "essential": True},
-        },
-    }
-}
-
-MOCK_TRANSACTIONS = [
-    {"tx_id": "M01", "user_id": "user_van_phong", "date": "2026-11-05", "description": "CK TIEN PHONG TRO T11", "amount": 4500000, "category": "tien_nha"},
-    {"tx_id": "M02", "user_id": "user_van_phong", "date": "2026-11-06", "description": "VNPT EPAY*EVN DIEN NUOC", "amount": 580000, "category": "dien_nuoc"},
-    {"tx_id": "M03", "user_id": "user_van_phong", "date": "2026-11-08", "description": "NHA THUOC LONG CHAU", "amount": 320000, "category": "thuoc_men"},
-    {"tx_id": "M04", "user_id": "user_van_phong", "date": "2026-11-10", "description": "GRAB*FOOD HN", "amount": 1300000, "category": "an_uong"},
-    {"tx_id": "M05", "user_id": "user_van_phong", "date": "2026-11-12", "description": "GRAB*FOOD HN", "amount": 650000, "category": "an_uong"},
-    {"tx_id": "M06", "user_id": "user_van_phong", "date": "2026-11-14", "description": "SHOPEEFOOD*DEM", "amount": 360000, "category": "an_uong"},
-    {"tx_id": "M07", "user_id": "user_van_phong", "date": "2026-11-15", "description": "SHOPEEFOOD*DEM", "amount": 180000, "category": "an_uong"},
-    {"tx_id": "M08", "user_id": "user_van_phong", "date": "2026-11-15", "description": "PHUC LONG COFFEE", "amount": 350000, "category": "ca_phe_tra_sua"},
-    {"tx_id": "M09", "user_id": "user_van_phong", "date": "2026-11-16", "description": "PHUC LONG COFFEE", "amount": 330000, "category": "ca_phe_tra_sua"},
-]
-
 
 def _load_budgets():
     path = os.path.join(DATA_DIR, "budgets.json")
-    if os.path.exists(path):
-        with open(path, encoding="utf-8") as f:
-            return json.load(f), False
-    return MOCK_BUDGETS, True
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
 
 
-def _load_transactions(user_id: str, month: str):
+def _load_transactions(user_id: str, month: str, current_day: int = 31):
+    """Đọc các giao dịch của `user_id` trong `month` tính đến hết ngày `current_day` (inclusive)."""
     path = os.path.join(DATA_DIR, "transactions.csv")
-    if os.path.exists(path):
-        rows = []
-        with open(path, encoding="utf-8-sig") as f:
-            for r in csv.DictReader(f):
-                if r["user_id"] == user_id and r["date"].startswith(month):
+    if not os.path.exists(path):
+        return [], False
+    month_has_any = False
+    rows = []
+    with open(path, encoding="utf-8-sig") as f:
+        for r in csv.DictReader(f):
+            if r["user_id"] == user_id and r["date"].startswith(month):
+                month_has_any = True
+                try:
+                    tx_day = int(r["date"].split("-")[2])
+                except (IndexError, ValueError):
+                    tx_day = 1
+                if tx_day <= current_day:
                     rows.append({
                         "tx_id": r["tx_id"],
                         "date": r["date"],
@@ -66,17 +44,16 @@ def _load_transactions(user_id: str, month: str):
                         "amount": int(r["amount"]),
                         "category": r["category"],
                     })
-        return rows
-    return [dict(r) for r in MOCK_TRANSACTIONS if r["user_id"] == user_id and r["date"].startswith(month)]
+    return rows, month_has_any
 
 
-def _compute_budget_status(user_id: str, month: str) -> dict:
-    """Hàm nội bộ tính tổng chi và phần trăm hạn mức bằng code Python (tránh nhân đôi sự kiện @tool trong trace)."""
-    budgets, is_mock = _load_budgets()
+def _compute_budget_status(user_id: str, month: str, current_day: int = 31) -> dict:
+    """Hàm nội bộ tính tổng chi, số còn lại và tỷ lệ % hạn mức đến hết ngày `current_day`."""
+    budgets = _load_budgets()
     if user_id not in budgets:
-        return {"error": f"Không tìm thấy dữ liệu người dùng '{user_id}'."}
-    txs = _load_transactions(user_id, month)
-    if not txs:
+        return {"error": f"Không tìm thấy dữ liệu hồ sơ '{user_id}'."}
+    txs, month_has_any = _load_transactions(user_id, month, current_day=current_day)
+    if not month_has_any:
         return {"error": f"Chưa có lịch sử giao dịch nào cho tháng {month}."}
 
     spent_by_cat = defaultdict(int)
@@ -101,29 +78,29 @@ def _compute_budget_status(user_id: str, month: str) -> dict:
         "user_id": user_id,
         "label": budgets[user_id]["label"],
         "month": month,
-        "is_mock_data": is_mock,
+        "as_of_day": current_day,
         "tx_count": len(txs),
         "categories": summary,
     }
 
 
 @tool
-def get_budget_status(user_id: str = "user_van_phong", month: str = "2026-11") -> dict:
-    """Tra trạng thái ngân sách và tổng chi từng nhóm của người dùng trong tháng.
-    Input: user_id (str), month dạng YYYY-MM (str).
-    Output: dict gồm thông tin persona và chi tiết từng nhóm (limit, spent, percent, remaining, essential).
+def get_budget_status(user_id: str = "user_van_phong", month: str = "2026-11", current_day: int = 15) -> dict:
+    """Tra trạng thái ngân sách, số đã chi, số còn lại và phần trăm từng nhóm tính đến hết ngày `current_day`.
+    Input: user_id (str), month dạng YYYY-MM (str), current_day (int).
+    Output: dict gồm thông tin hồ sơ và chi tiết từng nhóm (limit, spent, remaining, percent, essential).
     Không tác động ra ngoài (chỉ đọc data/)."""
-    return _compute_budget_status(user_id=user_id, month=month)
+    return _compute_budget_status(user_id=user_id, month=month, current_day=current_day)
 
 
 @tool
-def check_alert_rules(user_id: str = "user_van_phong", month: str = "2026-11", current_day: int = 16) -> dict:
+def check_alert_rules(user_id: str = "user_van_phong", month: str = "2026-11", current_day: int = 15) -> dict:
     """Kiểm tra quy tắc kích hoạt cảnh báo sớm ngân sách bằng code (không dùng AI phán đoán).
-    Quy tắc: Nếu ngày <= 20 (chưa hết 2/3 tháng) mà nhóm không thiết yếu đã dùng >= 80% hạn mức,
+    Quy tắc: Nếu ngày <= 20 (giữa tháng) mà nhóm không thiết yếu đã dùng >= 80% hạn mức,
     hoặc bất kỳ ngày nào dùng >= 90% hạn mức -> bật cảnh báo.
     Input: user_id (str), month (str), current_day (int).
     Output: dict danh sách các nhóm bị bật cảnh báo kèm mức độ. Không tác động ra ngoài."""
-    status = _compute_budget_status(user_id=user_id, month=month)
+    status = _compute_budget_status(user_id=user_id, month=month, current_day=current_day)
     if "error" in status:
         return status
 
@@ -139,8 +116,8 @@ def check_alert_rules(user_id: str = "user_van_phong", month: str = "2026-11", c
                 "name": info["name"],
                 "spent": info["spent"],
                 "limit": info["limit"],
-                "percent": pct,
                 "remaining": info["remaining"],
+                "percent": pct,
                 "severity": severity,
             })
     return {
@@ -153,17 +130,18 @@ def check_alert_rules(user_id: str = "user_van_phong", month: str = "2026-11", c
 
 
 @tool
-def find_cut_candidates(user_id: str = "user_van_phong", month: str = "2026-11") -> dict:
-    """Tìm các khoản chi lặp lại nhiều lần thuộc nhóm KHÔNG thiết yếu để gợi ý cắt giảm.
+def find_cut_candidates(user_id: str = "user_van_phong", month: str = "2026-11", current_day: int = 15) -> dict:
+    """Tìm các khoản chi lặp lại nhiều lần thuộc nhóm KHÔNG thiết yếu tính đến hết ngày `current_day`.
     Tuyệt đối loại trừ mọi nhóm có essential=True (tiền nhà, điện nước, thuốc men).
-    Input: user_id (str), month (str).
-    Output: dict danh sách các khoản lặp lại xếp theo tổng tiền giảm dần. Không tác động ra ngoài."""
-    budgets, _ = _load_budgets()
+    Input: user_id (str), month (str), current_day (int).
+    Output: dict danh sách các khoản lặp lại kèm số đơn, đơn giá TB và mức tiết kiệm nếu bớt 1 hoặc 2 đơn.
+    Không tác động ra ngoài."""
+    budgets = _load_budgets()
     if user_id not in budgets:
-        return {"error": f"Không tìm thấy người dùng '{user_id}'."}
+        return {"error": f"Không tìm thấy hồ sơ '{user_id}'."}
     cats = budgets[user_id]["categories"]
-    txs = _load_transactions(user_id, month)
-    if not txs:
+    txs, month_has_any = _load_transactions(user_id, month, current_day=current_day)
+    if not month_has_any:
         return {"error": f"Chưa có giao dịch trong tháng {month}."}
 
     grouped = defaultdict(lambda: {"count": 0, "total": 0, "category": "", "category_name": ""})
@@ -188,9 +166,11 @@ def find_cut_candidates(user_id: str = "user_van_phong", month: str = "2026-11")
                 "count": stats["count"],
                 "total_spent": stats["total"],
                 "avg_amount": avg_amt,
+                "save_if_cut_1": avg_amt,
+                "save_if_cut_2": avg_amt * 2,
             })
-    candidates.sort(key=lambda x: x["total_spent"], reverse=True)
-    return {"user_id": user_id, "month": month, "candidates": candidates[:5]}
+    candidates.sort(key=lambda x: (x["count"], x["total_spent"]), reverse=True)
+    return {"user_id": user_id, "month": month, "as_of_day": current_day, "candidates": candidates[:5]}
 
 
 @tool

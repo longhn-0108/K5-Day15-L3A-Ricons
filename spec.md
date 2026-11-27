@@ -62,9 +62,9 @@ flowchart LR
 
   | Công cụ | Input | Output | Tác động ra ngoài? |
   |---|---|---|---|
-  | `check_alert_rules(user_id, month, current_day)` | `user_id`, `month`, `current_day` | Trạng thái `has_alert` và danh sách nhóm chạm ngưỡng cảnh báo sớm | Không (chỉ đọc & tính bằng code) |
-  | `get_budget_status(user_id, month)` | `user_id`, `month` | Hạn mức, số tiền đã tiêu, phần trăm, số dư còn lại và cờ `essential` từng nhóm | Không (chỉ đọc) |
-  | `find_cut_candidates(user_id, month)` | `user_id`, `month` | Top 5 khoản lặp lại (≥2 lần) thuộc nhóm không thiết yếu (`essential=False`) | Không (chỉ đọc) |
+  | `check_alert_rules(user_id, month, current_day)` | `user_id`, `month`, `current_day` | Trạng thái `has_alert` và danh sách nhóm chạm ngưỡng cảnh báo sớm tính đến hết `current_day` | Không (chỉ đọc & tính bằng code) |
+  | `get_budget_status(user_id, month, current_day)` | `user_id`, `month`, `current_day` | Hạn mức, số đã tiêu, số dư còn lại, tỷ lệ `%` và cờ `essential` từng nhóm đến hết `current_day` | Không (chỉ đọc) |
+  | `find_cut_candidates(user_id, month, current_day)` | `user_id`, `month`, `current_day` | Các khoản lặp lại (≥2 lần) không thiết yếu (`essential=False`) kèm mức tiết kiệm khi bớt 1–2 đơn | Không (chỉ đọc) |
   | `log_user_action(user_id, category, action)` | `user_id`, `category`, `action` | Ghi nhận lựa chọn của người dùng (`ap_dung` / `bo_qua` / `tam_tat`) | Có ghi log cục bộ (đảo lại được) |
 
 - **Mức tự động:** [x] AI gợi ý, người quyết · [ ] AI tự làm khi chắc, chuyển người khi không · [ ] AI tự làm — lý do (sai thì ai chịu gì, sửa đắt hay rẻ):
@@ -115,7 +115,7 @@ Kịch bản chạm ngưỡng lần đầu vào cuối tháng đang chờ câu t
 
 Benchmark có 10 câu gồm 2 `thuong`, 5 `kho` và 3 `tu_choi`, với 3 metric đánh giá. [Data card](data/DATA_CARD.md) · [Bộ câu thử](eval/benchmark.csv) · [Metric spec](eval/metric_spec.yaml)
 
-**Chuẩn "đạt" đề xuất** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11). Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`.
+**Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`:
 
 1. 100% câu có yêu cầu về số liệu phải đúng, 0 câu bịa số.
 2. 0 câu gợi ý cắt khoản thiết yếu.
