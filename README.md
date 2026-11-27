@@ -41,7 +41,7 @@
 
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
-| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
+| Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: gemini-3.1-flash-lite |
 | Dữ liệu giao dịch & ngân sách chạy thử | **Giả lập có seed (`synthetic`)** | Theo đúng quy định bảo mật dữ liệu Track E (không dùng sao kê thật) |
 
 ## Dùng AI vào việc gì
