@@ -7,42 +7,46 @@
 
 | Nguồn | Đạt ngưỡng? | File |
 |---|---|---|
-| Đào data (x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☐ | `evidence/data-mining.md` |
-| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☐ | `evidence/interviews/P1.md`… |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ | `evidence/survey/` |
+| Đào data (≥30 review công khai: x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☐ *(đang triển khai cho CP3)* | `evidence/data-mining.md` |
+| Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☑ *(3/3 người)* | `evidence/interviews/P1.md`, `P2.md`, `P3.md` |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ *(chưa làm — nếu không làm sẽ xóa thư mục trước CP3)* | `evidence/survey/` |
 
 ## 2. Số chính
 
-- Đào data: __/__ (__%) …
-- Phỏng vấn: __/3 người gặp *(n nhỏ không ghi %)* · số lần / tháng: P1 __, P2 __, P3 __ · mỗi lần mất __–__ phút
-- Khảo sát: n = __ · __/__ (__%) …
-
-Phỏng vấn nhiều vai thì đếm theo từng vai, không cộng chung.
+- Đào data: *(đang bổ sung ≥30 review công khai Google Play cho MoMo, Money Lover, MISA trước CP3)*
+- Phỏng vấn: **3/3 người gặp** *(n nhỏ không ghi %)* · số lần / tháng: P1 ~2 lần/tháng, P2 ~0,67 lần/tháng (2 lần/3 tháng), P3 ~1 lần/tháng (3 lần/3 tháng) · mỗi lần mất **20–60 phút** rà lại giao dịch, tiêu lố **1,2–2,2 triệu/lần** · cả **3/3 người** từng phải rút **500k–1,5 triệu** từ tiền tiết kiệm bù vào.
+- Khảo sát: chưa thực hiện.
 
 | | Vai | Gặp pain? | Số lần / 1 tháng qua | Lần gần nhất mất | Đang xoay xở bằng |
 |---|---|---|---|---|---|
-| P1 | | | | | |
-| P2 | | | | | |
-| P3 | | | | | |
+| P1 | Nhân viên văn phòng, 27 tuổi (app ngân hàng + Excel) | Có | ~2 lần/tháng (đều 3 tháng gần đây) | 30–40 phút rà sao kê · lố ~1,2 triệu (có lần rút ~500k tiết kiệm) | App ngân hàng + Excel; cuối tháng tự nhẩm cắt ăn ngoài/cà phê hoặc rút tiết kiệm |
+| P2 | Nhân viên văn phòng, lương ~18tr (2 app ngân hàng + ShopeePay) | Có | ~0,67 lần/tháng (2 lần / 3 tháng) | 50–60 phút rà sao kê · lố ~2,2 triệu (rút 1,5 triệu tiết kiệm) | Xem số dư app ngân hàng + ví; cuối tháng tự nấu cơm, từ chối order nước và rút tiết kiệm bù |
+| P3 | Nhân viên văn phòng, lương ~13tr (app ngân hàng + MoMo + tiền mặt) | Có | ~1 lần/tháng (3 lần / 3 tháng) | 20–25 phút rà sao kê · lố ~1,8 triệu (rút 1,5 triệu tiết kiệm) | Vài hôm xem số dư app ngân hàng; cuối tháng ăn cơm gần công ty và rút tiết kiệm bù |
 
 ## 3. ≥5 trích dẫn hoặc ví dụ nguyên văn (có nguồn, bỏ tên)
 
-1. "…" — P_ / dòng data __ / phiếu khảo sát __
-2.
-3.
-4.
-5.
+1. "Mình nhớ có tuần đặt đồ ăn 5 bữa liền, cộng thêm 4 ly cà phê là bay gần 500k mà không để ý." — P1
+2. "Cảnh báo chỉ báo động khi đã cận kề giới hạn, chứ không giúp mình điều chỉnh sớm. Nhiều lúc mình bỏ qua luôn vì biết có cắt cũng không kịp, thành ra cảm giác cảnh báo chỉ để 'báo tang' chứ không phải để 'phòng bệnh'." — P1
+3. "Toàn bị 'rỉ máu' từ mấy khoản nhỏ lẻ không à. Trưa nào lười ra ngoài là lại gọi đồ ăn cỡ 60–90 nghìn một bữa, chiều anh chị trong phòng rủ nhau đặt trà sữa hay cà phê cũng mất thêm 45–60 nghìn nữa." — P2
+4. "Cái làm mình thấy ức chế nhất là mấy cái cảnh báo đó nó chỉ báo cho mình biết con số đã tiêu thôi, kiểu như nói cho mình thấy tội lỗi thêm chứ chẳng chỉ ra mình phải làm gì tiếp theo." — P2
+5. "Đang đi làm mà điện thoại cứ báo thì mình thường tắt đi luôn. Với cả nó báo mình vượt ngân sách rồi thì cũng đâu làm gì được nữa." — P3
+6. "Ngoài ra mình hay đặt trà sữa với đồ ăn vặt ở văn phòng, mỗi lần khoảng 40–60 nghìn. Bình thường thấy số tiền cũng nhỏ nên không để ý." — P3
 
 ## 4. Các nguồn có khớp nhau không
 
-Data nói __; người dùng nói __. Khớp / lệch ở đâu, vì sao: __
+- Phỏng vấn 3/3 người đều trùng khớp ở 4 điểm: (1) tiêu lố xảy ra từ **tuần thứ 3 (tầm ngày 20)**; (2) nguyên nhân chính là **khoản nhỏ lặp lại** (đặt đồ ăn trưa, cà phê/trà sữa, mua sắm online) chứ không phải sự cố lớn; (3) hậu quả trực tiếp là **rút tiền tiết kiệm bù vào** và mất **20–60 phút** rà lại giao dịch; (4) cảnh báo hiện tại **báo quá muộn, chung chung, gây cảm giác tội lỗi** nên bị bỏ qua.
+- Đối chiếu với nguồn đào review công khai: *(sẽ cập nhật sau khi hoàn thành `evidence/data-mining.md` trước CP3)*.
 
 ## 5. Kết luận
 
-Giả thuyết ở `evidence/hypothesis.md`: **đúng / sai / phải đổi** — vì __. Điều vẫn chưa biết: __
+Giả thuyết ở `evidence/hypothesis.md`: **đúng phần cốt lõi (3/3 vượt ngưỡng ≥2/3)** — cả 3 người đều tiêu lố từ tuần 3 do khoản nhỏ lặp lại và bỏ qua cảnh báo trễ/chung chung.
+**Điểm mới phát hiện thêm:** 2/3 người (P2, P3) đã bỏ app quản lý chi tiêu chuyên dụng sau 1–3 tuần vì **ngại nhập tay** và giao dịch phân mảnh nhiều ví/ngân hàng; cảnh báo mang giọng điệu gây "tội lỗi" hoặc bắn thông báo giờ làm việc rất dễ bị tắt.
+**Điều vẫn chưa biết:** Tỷ lệ người dùng phàn nàn về cảnh báo ngân sách trên tập review công khai diện rộng (sẽ kiểm bằng ≥30 review ở `evidence/data-mining.md`).
 
 ## Lịch hẹn (dùng cho CP2 — chỉ ghi vai và giờ, không tên)
 
 | Vai | Giờ hẹn | Đã xong? |
 |---|---|---|
-| | | |
+| Nhân viên văn phòng, 27 tuổi (P1) | 27/11 12:17 | ☑ |
+| Nhân viên văn phòng, lương ~18tr (P2) | 27/11 13:02 | ☑ |
+| Nhân viên văn phòng, lương ~13tr (P3) | 27/11 13:01 | ☑ |
