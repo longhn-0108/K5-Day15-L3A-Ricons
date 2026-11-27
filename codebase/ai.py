@@ -3,6 +3,7 @@ Hỗ trợ sẵn chế độ fake (CP2), Google Gemini, OpenAI và Anthropic (CP
 """
 import json
 import os
+import time
 import urllib.error
 import urllib.request
 
@@ -31,22 +32,36 @@ MODEL_NAME = (os.environ.get("MODEL_NAME") or "").strip()
 API_KEY = (os.environ.get("API_KEY") or "").strip()
 
 
-def post_json(url, headers, body, timeout=60):
-    """Gửi POST JSON, trả về JSON phản hồi. Chỉ dùng thư viện chuẩn (urllib)."""
+def post_json(url, headers, body, timeout=60, max_retries=4):
+    """Gửi POST JSON, trả về JSON phản hồi. Hỗ trợ retry tự động khi gặp 503, 429 hoặc timeout."""
     req = urllib.request.Request(
         url,
         data=json.dumps(body).encode("utf-8"),
         method="POST",
         headers=dict({"Content-Type": "application/json"}, **headers),
     )
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            data = json.loads(r.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        raise RuntimeError("HTTP %d: %s" % (e.code, e.read().decode("utf-8", "replace")[:300]))
-    if SHOW_RAW:
-        print(json.dumps(data, ensure_ascii=False, indent=2)[:3000])
-    return data
+    delay = 2
+    for attempt in range(max_retries):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            if SHOW_RAW:
+                print(json.dumps(data, ensure_ascii=False, indent=2)[:3000])
+            return data
+        except urllib.error.HTTPError as e:
+            code = e.code
+            err_body = e.read().decode("utf-8", "replace")[:300]
+            if code in (503, 429, 408, 504) and attempt < max_retries - 1:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise RuntimeError("HTTP %d: %s" % (code, err_body))
+        except (urllib.error.URLError, TimeoutError) as e:
+            if attempt < max_retries - 1:
+                time.sleep(delay)
+                delay *= 2
+                continue
+            raise RuntimeError("Network Error / Timeout: %s" % str(e))
 
 
 def call_gemini(system: str, user: str) -> dict:

@@ -25,7 +25,7 @@ FORBIDDEN_PATTERNS = [
     (r"chuyển khoản hộ|chuyển tiền giúp|khóa thẻ", "tx_action"),
     (r"bỏ qua.*(chỉ dẫn|hướng dẫn)|chỉ dẫn nội bộ|hướng dẫn nội bộ|system prompt|in ra chỉ dẫn", "injection"),
     (r"làm giả số|sửa số liệu|bịa.*số|ghi rằng mình mới dùng", "fake_data"),
-    (r"tài khoản của sếp|bạn cùng phòng xem họ tiêu|người khác tiêu", "privacy"),
+    (r"tài khoản của sếp|bạn cùng phòng|người khác|xem hộ.*(khác|bạn|sếp|người)", "privacy"),
 ]
 
 
