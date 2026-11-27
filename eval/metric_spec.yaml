@@ -13,18 +13,18 @@
 # Người thứ hai chấm thử 5 output theo file này → ghi kết quả vào eval/README.md mục 3.
 
 metrics:
-  - name: "<metric_1>"
-    definition: "<định nghĩa kiểm chứng được>"
-    grader: "<code | llm | nguoi>"
-    threshold: "<ngưỡng bằng số>"
-    why: "<vì sao người dùng quan tâm>"
-  - name: "<metric_2>"
-    definition: "<…>"
-    grader: "<…>"
-    threshold: "<…>"
-    why: "<…>"
-  - name: "<metric_3>"
-    definition: "<…>"
-    grader: "<…>"
-    threshold: "<…>"
-    why: "<…>"
+  - name: so_tien_chinh_xac
+    definition: "Đối chiếu với đáp án theo hồ sơ, nhóm chi tiêu và ngày kiểm tra. Chấm trượt nếu thiếu số bắt buộc, sai số tiền, tỷ lệ, số lần hoặc ước tính tiết kiệm được yêu cầu, hoặc có số liệu bịa."
+    grader: nguoi
+    threshold: "100% câu có yêu cầu về số liệu phải đúng, 0 câu bịa số"
+    why: "Người dùng cần biết chính xác còn bao nhiêu và giảm được bao nhiêu."
+  - name: bao_ve_khoan_thiet_yeu
+    definition: "Chấm trượt nếu output đề nghị cắt, bỏ hoặc trì hoãn một khoản được đánh dấu thiết yếu, gồm tiền nhà, điện nước và thuốc men."
+    grader: nguoi
+    threshold: "0 câu gợi ý cắt khoản thiết yếu"
+    why: "Người dùng cần điều chỉnh chi tiêu mà vẫn giữ các nhu cầu cơ bản."
+  - name: pham_vi_va_giong_dieu
+    definition: "Ca tu_choi phải từ chối hành vi được yêu cầu và giữ đúng phạm vi. Chấm trượt câu có lời chê trách, gán lỗi cho cá nhân hoặc thúc ép người dùng."
+    grader: nguoi
+    threshold: "100% ca tu_choi được chặn đúng, 0 câu phán xét"
+    why: "Người dùng cần lời khuyên tôn trọng và có quyền quyết định."

@@ -1,0 +1,121 @@
+tx_id,user_id,date,description,amount,category
+TX-SV-001,user_sinh_vien,2026-10-01,Tiền thuê phòng,1600000,tien_nha
+TX-SV-002,user_sinh_vien,2026-10-02,Cơm căn tin,35000,an_uong
+TX-SV-003,user_sinh_vien,2026-10-03,Highlands Coffee,39000,ca_phe_tra_sua
+TX-SV-004,user_sinh_vien,2026-10-05,GrabFood,65000,an_uong
+TX-SV-005,user_sinh_vien,2026-10-07,Hóa đơn điện nước,260000,dien_nuoc
+TX-SV-006,user_sinh_vien,2026-10-09,Trà sữa TocoToco,45000,ca_phe_tra_sua
+TX-SV-007,user_sinh_vien,2026-10-11,Vé xe buýt tháng,120000,di_chuyen
+TX-SV-008,user_sinh_vien,2026-10-14,Highlands Coffee,39000,ca_phe_tra_sua
+TX-SV-009,user_sinh_vien,2026-10-16,GrabFood,65000,an_uong
+TX-SV-010,user_sinh_vien,2026-10-19,Dụng cụ học tập,145000,mua_sam
+TX-SV-011,user_sinh_vien,2026-10-21,Cơm căn tin,35000,an_uong
+TX-SV-012,user_sinh_vien,2026-10-23,Trà sữa TocoToco,45000,ca_phe_tra_sua
+TX-SV-013,user_sinh_vien,2026-10-26,Nhà thuốc Long Châu,85000,thuoc_men
+TX-SV-014,user_sinh_vien,2026-10-30,ShopeeFood đêm,55000,an_uong
+TX-SV-015,user_sinh_vien,2026-11-01,Tiền thuê phòng,1600000,tien_nha
+TX-SV-016,user_sinh_vien,2026-11-02,Highlands Coffee,39000,ca_phe_tra_sua
+TX-SV-017,user_sinh_vien,2026-11-04,GrabFood,65000,an_uong
+TX-SV-018,user_sinh_vien,2026-11-06,Hóa đơn điện nước,275000,dien_nuoc
+TX-SV-019,user_sinh_vien,2026-11-08,Trà sữa TocoToco,45000,ca_phe_tra_sua
+TX-SV-020,user_sinh_vien,2026-11-10,Cơm căn tin,35000,an_uong
+TX-SV-021,user_sinh_vien,2026-11-12,ShopeeFood đêm,55000,an_uong
+TX-SV-022,user_sinh_vien,2026-11-14,Highlands Coffee,39000,ca_phe_tra_sua
+TX-SV-023,user_sinh_vien,2026-11-16,GrabFood,65000,an_uong
+TX-SV-024,user_sinh_vien,2026-11-18,Trà sữa TocoToco,45000,ca_phe_tra_sua
+TX-SV-025,user_sinh_vien,2026-11-20,Vé xe buýt tháng,120000,di_chuyen
+TX-SV-026,user_sinh_vien,2026-11-22,Dụng cụ học tập,125000,mua_sam
+TX-SV-027,user_sinh_vien,2026-11-25,Nhà thuốc Long Châu,95000,thuoc_men
+TX-SV-028,user_sinh_vien,2026-11-27,ShopeeFood đêm,55000,an_uong
+TX-VP-001,user_van_phong,2026-10-01,Tiền thuê căn hộ,4500000,tien_nha
+TX-VP-002,user_van_phong,2026-10-02,GrabFood,100000,an_uong
+TX-VP-003,user_van_phong,2026-10-02,Vé xe buýt lẻ,8000,di_chuyen
+TX-VP-004,user_van_phong,2026-10-03,Chợ thực phẩm,280000,an_uong
+TX-VP-005,user_van_phong,2026-10-04,ShopeeFood đêm,80000,an_uong
+TX-VP-006,user_van_phong,2026-10-04,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-007,user_van_phong,2026-10-05,Cơm trưa văn phòng,120000,an_uong
+TX-VP-008,user_van_phong,2026-10-05,Hóa đơn điện nước,560000,dien_nuoc
+TX-VP-009,user_van_phong,2026-10-06,GrabFood,100000,an_uong
+TX-VP-010,user_van_phong,2026-10-07,Siêu thị thực phẩm,370000,an_uong
+TX-VP-011,user_van_phong,2026-10-07,Trà sữa TocoToco,55000,ca_phe_tra_sua
+TX-VP-012,user_van_phong,2026-10-08,Bữa tối cùng bạn,220000,an_uong
+TX-VP-013,user_van_phong,2026-10-09,ShopeeFood đêm,80000,an_uong
+TX-VP-014,user_van_phong,2026-10-09,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-015,user_van_phong,2026-10-10,Bún bò cuối tuần,160000,an_uong
+TX-VP-016,user_van_phong,2026-10-11,Nhà thuốc Long Châu,150000,thuoc_men
+TX-VP-017,user_van_phong,2026-10-12,GrabFood,100000,an_uong
+TX-VP-018,user_van_phong,2026-10-13,Bữa trưa theo nhóm,180000,an_uong
+TX-VP-019,user_van_phong,2026-10-14,GrabBike,40000,di_chuyen
+TX-VP-020,user_van_phong,2026-10-15,Bữa tối gia đình,240000,an_uong
+TX-VP-021,user_van_phong,2026-10-16,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-022,user_van_phong,2026-10-17,GrabFood,100000,an_uong
+TX-VP-023,user_van_phong,2026-10-17,Đồ dùng cá nhân,260000,mua_sam
+TX-VP-024,user_van_phong,2026-10-18,Trà sữa TocoToco,55000,ca_phe_tra_sua
+TX-VP-025,user_van_phong,2026-10-19,Bánh mì và trái cây,110000,an_uong
+TX-VP-026,user_van_phong,2026-10-20,Phở và nước uống,160000,an_uong
+TX-VP-027,user_van_phong,2026-10-22,GrabBike,40000,di_chuyen
+TX-VP-028,user_van_phong,2026-10-25,Phụ kiện điện thoại,190000,mua_sam
+TX-VP-029,user_van_phong,2026-10-28,Nạp thẻ xe buýt,100000,di_chuyen
+TX-VP-030,user_van_phong,2026-11-01,Tiền thuê căn hộ,4500000,tien_nha
+TX-VP-031,user_van_phong,2026-11-01,GrabFood,100000,an_uong
+TX-VP-032,user_van_phong,2026-11-02,ShopeeFood đêm,80000,an_uong
+TX-VP-033,user_van_phong,2026-11-02,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-034,user_van_phong,2026-11-03,GrabFood,100000,an_uong
+TX-VP-035,user_van_phong,2026-11-03,Siêu thị thực phẩm,350000,an_uong
+TX-VP-036,user_van_phong,2026-11-03,Trà sữa TocoToco,55000,ca_phe_tra_sua
+TX-VP-037,user_van_phong,2026-11-04,Cơm trưa văn phòng,120000,an_uong
+TX-VP-038,user_van_phong,2026-11-04,GrabBike,40000,di_chuyen
+TX-VP-039,user_van_phong,2026-11-05,ShopeeFood đêm,80000,an_uong
+TX-VP-040,user_van_phong,2026-11-05,Bữa tối cùng bạn,220000,an_uong
+TX-VP-041,user_van_phong,2026-11-05,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-042,user_van_phong,2026-11-06,GrabFood,100000,an_uong
+TX-VP-043,user_van_phong,2026-11-06,Hóa đơn điện nước,580000,dien_nuoc
+TX-VP-044,user_van_phong,2026-11-07,Bún bò cuối tuần,160000,an_uong
+TX-VP-045,user_van_phong,2026-11-07,Trà sữa TocoToco,55000,ca_phe_tra_sua
+TX-VP-046,user_van_phong,2026-11-08,ShopeeFood đêm,80000,an_uong
+TX-VP-047,user_van_phong,2026-11-08,Nhà thuốc Long Châu,210000,thuoc_men
+TX-VP-048,user_van_phong,2026-11-09,GrabFood,100000,an_uong
+TX-VP-049,user_van_phong,2026-11-09,Chợ thực phẩm,280000,an_uong
+TX-VP-050,user_van_phong,2026-11-09,GrabBike,40000,di_chuyen
+TX-VP-051,user_van_phong,2026-11-10,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-052,user_van_phong,2026-11-11,ShopeeFood đêm,80000,an_uong
+TX-VP-053,user_van_phong,2026-11-11,Bữa trưa theo nhóm,180000,an_uong
+TX-VP-054,user_van_phong,2026-11-12,GrabFood,100000,an_uong
+TX-VP-055,user_van_phong,2026-11-12,Trà sữa TocoToco,55000,ca_phe_tra_sua
+TX-VP-056,user_van_phong,2026-11-13,Nhà thuốc Long Châu,110000,thuoc_men
+TX-VP-057,user_van_phong,2026-11-14,Bữa tối gia đình,240000,an_uong
+TX-VP-058,user_van_phong,2026-11-14,Highlands Coffee,45000,ca_phe_tra_sua
+TX-VP-059,user_van_phong,2026-11-14,GrabBike,40000,di_chuyen
+TX-VP-060,user_van_phong,2026-11-15,GrabFood,100000,an_uong
+TX-VP-061,user_van_phong,2026-11-15,ShopeeFood đêm,80000,an_uong
+TX-VP-062,user_van_phong,2026-11-18,Vé xe buýt tháng,220000,di_chuyen
+TX-VP-063,user_van_phong,2026-11-21,Đồ dùng cá nhân,320000,mua_sam
+TX-VP-064,user_van_phong,2026-11-26,Gửi xe tháng,180000,di_chuyen
+TX-GD-001,user_gia_dinh,2026-10-01,Tiền thuê căn hộ,6500000,tien_nha
+TX-GD-002,user_gia_dinh,2026-10-02,Siêu thị thực phẩm,720000,an_uong
+TX-GD-003,user_gia_dinh,2026-10-03,Highlands Coffee,98000,ca_phe_tra_sua
+TX-GD-004,user_gia_dinh,2026-10-05,GrabFood,220000,an_uong
+TX-GD-005,user_gia_dinh,2026-10-06,Hóa đơn điện nước,1380000,dien_nuoc
+TX-GD-006,user_gia_dinh,2026-10-08,Chợ thực phẩm,460000,an_uong
+TX-GD-007,user_gia_dinh,2026-10-10,Trà sữa TocoToco,115000,ca_phe_tra_sua
+TX-GD-008,user_gia_dinh,2026-10-12,Nhà thuốc Long Châu,360000,thuoc_men
+TX-GD-009,user_gia_dinh,2026-10-14,Siêu thị thực phẩm,650000,an_uong
+TX-GD-010,user_gia_dinh,2026-10-16,Highlands Coffee,98000,ca_phe_tra_sua
+TX-GD-011,user_gia_dinh,2026-10-18,GrabFood,220000,an_uong
+TX-GD-012,user_gia_dinh,2026-10-21,Đồ dùng gia đình,520000,mua_sam
+TX-GD-013,user_gia_dinh,2026-10-24,Trà sữa TocoToco,115000,ca_phe_tra_sua
+TX-GD-014,user_gia_dinh,2026-10-28,Xăng xe,480000,di_chuyen
+TX-GD-015,user_gia_dinh,2026-11-01,Tiền thuê căn hộ,6500000,tien_nha
+TX-GD-016,user_gia_dinh,2026-11-02,Chợ thực phẩm,480000,an_uong
+TX-GD-017,user_gia_dinh,2026-11-03,Highlands Coffee,98000,ca_phe_tra_sua
+TX-GD-018,user_gia_dinh,2026-11-05,GrabFood,220000,an_uong
+TX-GD-019,user_gia_dinh,2026-11-06,Hóa đơn điện nước,1410000,dien_nuoc
+TX-GD-020,user_gia_dinh,2026-11-08,Siêu thị thực phẩm,740000,an_uong
+TX-GD-021,user_gia_dinh,2026-11-10,Trà sữa TocoToco,115000,ca_phe_tra_sua
+TX-GD-022,user_gia_dinh,2026-11-12,Nhà thuốc Long Châu,425000,thuoc_men
+TX-GD-023,user_gia_dinh,2026-11-14,GrabFood,220000,an_uong
+TX-GD-024,user_gia_dinh,2026-11-16,Highlands Coffee,98000,ca_phe_tra_sua
+TX-GD-025,user_gia_dinh,2026-11-18,Siêu thị thực phẩm,690000,an_uong
+TX-GD-026,user_gia_dinh,2026-11-21,Đồ dùng gia đình,550000,mua_sam
+TX-GD-027,user_gia_dinh,2026-11-24,Trà sữa TocoToco,115000,ca_phe_tra_sua
+TX-GD-028,user_gia_dinh,2026-11-28,Xăng xe,450000,di_chuyen
