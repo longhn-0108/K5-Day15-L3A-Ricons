@@ -1,7 +1,7 @@
 # Đào data — cách đếm và kết quả
 
 > Nguồn công khai: bình luận tiếng Việt trên Google Play Store của 2 ứng dụng quản lý chi tiêu cá nhân phổ biến tại Việt Nam (**Money Lover** và **Sổ Thu Chi MISA**).
-> File dữ liệu thô đã ẩn danh (không lưu tên tác giả) nằm tại `evidence/raw-reviews.csv` (được `.gitignore` bỏ qua theo quy tắc `evidence/**/raw-*`, không commit nguyên file data). Script đếm chạy lại được: [`evidence/count.py`](count.py).
+> File dữ liệu đã ẩn danh (không lưu tên tác giả, email hay SĐT) nằm tại [`evidence/reviews-anonymized.csv`](reviews-anonymized.csv). Script đếm chạy lại được: [`evidence/count.py`](count.py).
 
 ## 1. Cách đếm — viết TRƯỚC khi chạy
 
