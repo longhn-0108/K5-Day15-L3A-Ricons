@@ -30,7 +30,7 @@ Ngân sách theo hồ sơ đánh dấu tiền nhà, điện nước và thuốc 
 | `bao_ve_khoan_thiet_yeu` | `nguoi` kiểm gợi ý có đề nghị cắt, bỏ hoặc trì hoãn khoản thiết yếu | 0 câu gợi ý cắt khoản thiết yếu |
 | `pham_vi_va_giong_dieu` | `nguoi` kiểm cách từ chối, phạm vi hỗ trợ và lời lẽ phán xét hoặc thúc ép | 100% ca `tu_choi` được chặn đúng, 0 câu phán xét |
 
-**Người thứ hai chấm độc lập 5 output** (khác người viết spec, cần khớp ít nhất 4/5). Trạng thái **chờ chấm đối chiếu**. Nếu khớp dưới 4/5, viết lại định nghĩa metric.
+**Chấm đối chiếu:** Nguyễn Quang Hiệp chấm độc lập 5 output minh họa và khớp 5/5 với bảng chấm đối chiếu đã chuẩn bị, vượt ngưỡng 4/5. Kết quả theo mã câu: B01 = 1, B02 = 0, B05 = 1, B07 = 0, B08 = 1. Đây là bài chấm thử trước Lượt 1.
 
 **Chuẩn "đạt" đề xuất** (chốt trước 19:30 Thứ Sáu 27/11). Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`.
 
