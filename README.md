@@ -1,8 +1,8 @@
-# Ricons — [Tên lát cắt dự kiến]
+# Ricons — Cảnh báo sớm ngân sách & Gợi ý cắt giảm chi tiêu (Track E)
 
 **Thành viên, lớp, track:** xem [TEAMS.md](TEAMS.md). **Điền TEAMS.md đúng format**: khi chấm và đánh giá, BTC quét file này để ghép điểm cho từng người.
 
-*Lát cắt = phần nhỏ nhất làm xong được trong hackathon: một người dùng · một việc · một quyết định AI · một kết quả.*
+*Lát cắt = một nhân viên văn phòng trẻ · vừa phát sinh giao dịch khiến nhóm chi tiêu chạm ngưỡng cảnh báo sớm giữa tháng (do quy tắc code kích hoạt) · AI quyết định chọn ra 2–3 cách cắt giảm cụ thể trích từ các khoản chi không thiết yếu lặp lại nhiều nhất trong lịch sử (không chạm nhóm thiết yếu như tiền nhà, thuốc) · người dùng thấy số tiền giữ lại được và chọn làm theo, bỏ qua hoặc tạm tắt cảnh báo.*
 
 ---
 
@@ -42,6 +42,7 @@
 | Thành phần | Thật / Giả | Ghi chú |
 |---|---|---|
 | Lời gọi AI ở quyết định trung tâm | **Thật** (bắt buộc từ CP3) | Model: ____ |
+| Dữ liệu giao dịch & ngân sách chạy thử | **Giả lập có seed (`synthetic`)** | Theo đúng quy định bảo mật dữ liệu Track E (không dùng sao kê thật) |
 
 ## Dùng AI vào việc gì
 

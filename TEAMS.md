@@ -12,7 +12,7 @@
 | STT | Họ và tên          | Mã học viên | Vai trò       | Phần việc chính                                           |
 | --- | --------------------- | -------------- | -------------- | ------------------------------------------------------------ |
 | 1   | Hoàng Nguyên Long   | 2A202603476    | Đội trưởng | Thiết kế giải pháp, nối model AI và điều phối chung |
-| 2   | Lê Anh Sơn          | 2A202603440    | Thành viên   | Đào dữ liệu pre-class và phỏng vấn người dùng      |
+| 2   | Lê Anh Sơn          | 2A202603440    | Thành viên   | Đào review công khai và phỏng vấn người dùng      |
 | 3   | Lưu Văn Việt Đức | 2A202603445    | Thành viên   | Xây dựng bộ câu thử benchmark và chấm đánh giá     |
 | 4   | Nguyễn Quang Hiệp   | 2A202603509    | Thành viên   | Mô phỏng chi phí, thiết kế slide và video demo         |
 
