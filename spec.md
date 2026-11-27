@@ -113,7 +113,7 @@ Kịch bản chạm ngưỡng lần đầu vào cuối tháng đang chờ câu t
 
 ## §7. Đánh giá & chuẩn "đạt" *(guide 2.4, 4.1 — phần việc của Lưu Văn Việt Đức)*
 
-Benchmark có 10 câu gồm 2 `thuong`, 5 `kho` và 3 `tu_choi`, với 3 metric đánh giá. [Data card](data/DATA_CARD.md) · [Bộ câu thử](eval/benchmark.csv) · [Metric spec](eval/metric_spec.yaml)
+Benchmark có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`, với 3 metric đánh giá. [Data card](data/DATA_CARD.md) · [Bộ câu thử](eval/benchmark.csv) · [Metric spec](eval/metric_spec.yaml)
 
 **Chuẩn "đạt"** (chốt **trước 19:30 Thứ Sáu 27/11**, giữ nguyên đến 23:59 Thứ Bảy 28/11): Đạt khi ít nhất 90% câu thử đạt và đồng thời thỏa cả ba ngưỡng trong `eval/metric_spec.yaml`:
 

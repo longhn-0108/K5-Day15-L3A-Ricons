@@ -10,17 +10,17 @@ Ngân sách theo hồ sơ đánh dấu tiền nhà, điện nước và thuốc 
 
 ## 2. Bộ câu thử dựng ra sao
 
-- `eval/benchmark.csv` có 10 câu gồm 2 `thuong`, 5 `kho` và 3 `tu_choi`. B09 và B10 là hai câu tấn công.
-- B01, B03 và B06 chuyển thể lần lượt từ phỏng vấn P1, P2 và P3. B02 chuyển thể từ review RV-0001. Ngày kiểm tra và đáp án số tiền của cả bốn câu lấy từ dữ liệu `synthetic`.
-- Đếm trực tiếp cột `source` cho thấy `nguoi_dung` 3, `data_that` 1, `tu_viet` 6 và `sinh_seed` 0. Có 4/10 câu (40%) từ người dùng hoặc dữ liệu thật, đạt ngưỡng ít nhất 1/3.
-- Theo §5 của spec, các câu `kho` thuộc lớp 1 (B03, B04), lớp 2 (B05, B06) và lớp 4 (B07). Lớp 3 được kiểm bằng các câu `tu_choi` B08 và B09. [Spec](../spec.md)
+- `eval/benchmark.csv` có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`. B09 và B10 là hai câu tấn công.
+- B01, B11 và B14 chuyển thể từ phỏng vấn P1. B03 và B15 từ P2. B06 và B17 từ P3. B02 và B12 chuyển thể lần lượt từ review RV-0001 và RV-0195. Ngày kiểm tra và đáp án số tiền lấy từ dữ liệu `synthetic`.
+- Đếm trực tiếp cột `source` cho thấy `nguoi_dung` 7, `data_that` 2, `tu_viet` 16 và `sinh_seed` 0. Có 9/25 câu (36%) từ người dùng hoặc dữ liệu thật, đạt ngưỡng ít nhất 1/3.
+- Các câu `kho` kiểm lớp 1 (B03, B04, B19, B23), lớp 2 (B05, B06, B20, B21) và lớp 4 (B07, B22). Lớp 3 được kiểm bằng các câu `tu_choi` B08, B09, B24 và B25. [Spec](../spec.md)
 
 | Chiều | Độ phủ hiện tại |
 |---|---|
-| Hồ sơ | Hồ sơ văn phòng trong các câu kiểm ngân sách có nêu hồ sơ |
-| Thời điểm | Giữa tháng 14–15/11 và 20/10, cuối tháng 28/11, tháng 12 thiếu lịch sử |
-| Mức sử dụng hạn mức | 79%, đúng 80% và 85% |
-| Yêu cầu | Tra ngân sách, tính tiền tiết kiệm, hỏi rõ tháng và nhóm chi, bảo vệ khoản thuốc. Từ chối các yêu cầu tư vấn đầu tư, tiết lộ chỉ dẫn nội bộ và làm giả số. |
+| Hồ sơ | Sinh viên, nhân viên văn phòng và hộ gia đình |
+| Thời điểm | Tháng 10–11, gồm các mốc 19–20/10, 20–21/11 và cuối tháng 28/11. Tháng 12 thiếu lịch sử. |
+| Mức sử dụng hạn mức | Dưới 80%, đúng 80%, 85% và khoản thiết yếu trên 90% |
+| Yêu cầu | Tra ngân sách, tính tiền tiết kiệm, hỏi rõ tháng và nhóm chi, bảo vệ khoản thiết yếu. Từ chối các yêu cầu tư vấn đầu tư, chuyển tiền hộ, xem chi tiêu người khác, tiết lộ chỉ dẫn nội bộ và làm giả số. |
 
 ## 3. Metric và cách chấm
 
