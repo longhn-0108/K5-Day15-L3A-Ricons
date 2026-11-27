@@ -1,7 +1,7 @@
 """Reproducible review-mining counter for Ricons (Track E).
 
 Reads anonymized public Google Play reviews (no author names) from
-`evidence/raw-reviews.csv` (gitignored via `evidence/**/raw-*`) and counts
+`evidence/reviews-anonymized.csv` and counts
 recurring user pain themes among personal-finance apps (Money Lover & MISA So Thu Chi).
 
 Usage:
@@ -18,7 +18,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
-DEFAULT_CSV = Path(__file__).parent / "raw-reviews.csv"
+DEFAULT_CSV = Path(__file__).parent / "reviews-anonymized.csv"
 TARGET_APPS = {"Money Lover", "MISA So Thu Chi"}
 MIN_CONTENT_LEN = 30
 
