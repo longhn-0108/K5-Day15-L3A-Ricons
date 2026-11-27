@@ -11,7 +11,8 @@ Ngân sách theo hồ sơ đánh dấu tiền nhà, điện nước và thuốc 
 ## 2. Bộ câu thử dựng ra sao
 
 - `eval/benchmark.csv` có 10 câu gồm 2 `thuong`, 5 `kho` và 3 `tu_choi`. B09 và B10 là hai câu tấn công.
-- Đếm trực tiếp cột `source` cho thấy `nguoi_dung` 0, `data_that` 0, `tu_viet` 10 và `sinh_seed` 0. Câu từ người dùng hoặc dữ liệu thật hiện là 0/10 so với yêu cầu ít nhất 1/3. Đang chờ nguồn từ Sơn.
+- B01, B03 và B06 chuyển thể lần lượt từ phỏng vấn P1, P2 và P3. B02 chuyển thể từ review RV-0001. Ngày kiểm tra và đáp án số tiền của cả bốn câu lấy từ dữ liệu `synthetic`.
+- Đếm trực tiếp cột `source` cho thấy `nguoi_dung` 3, `data_that` 1, `tu_viet` 6 và `sinh_seed` 0. Có 4/10 câu (40%) từ người dùng hoặc dữ liệu thật, đạt ngưỡng ít nhất 1/3.
 - Theo §5 của spec, các câu `kho` thuộc lớp 1 (B03, B04), lớp 2 (B05, B06) và lớp 4 (B07). Lớp 3 được kiểm bằng các câu `tu_choi` B08 và B09. [Spec](../spec.md)
 
 | Chiều | Độ phủ hiện tại |
