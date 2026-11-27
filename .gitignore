@@ -35,3 +35,7 @@ evidence/**/raw-*
 # Nguyên file data BTC cấp (data/preclass, data/training-ops… của repo đề): để ở đây, không commit
 data-btc
 data-btc/
+
+# Video demo: file sinh ra (chạy lại bằng python demo/make_demo.py)
+demo/build/
+demo/out/
