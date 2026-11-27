@@ -13,23 +13,23 @@ Data BTC cấp đã dùng (nếu có — không commit nguyên file): Không có
 - Công cụ / AI đang được dùng cho việc này (nếu có) + nguồn: Tính năng đặt hạn mức chi tiêu theo quy tắc tĩnh trên các ví điện tử / ứng dụng thu chi phổ biến (chưa kiểm chi tiết từng hãng — cập nhật kèm ảnh chụp đã che thông tin ở phần nghiên cứu người dùng).
 
 ## §1. Người dùng & bằng chứng *(guide 1.1, 1.2 — phần việc của Lê Anh Sơn)*
-- Người dùng chính (một vai cụ thể): __
-- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): __
-- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: __
-- Pain (KHÔNG chữ AI): ai — đang làm gì — vướng đâu — hậu quả gì: __
-- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): __
+- Người dùng chính (một vai cụ thể): Nhân viên văn phòng trẻ (22–30 tuổi) sử dụng ví điện tử và app ngân hàng, có đặt hạn mức ngân sách tháng nhưng hay phát sinh các khoản chi nhỏ lẻ lặp lại (đặt đồ ăn, cà phê/trà sữa, mua sắm online).
+- Việc họ cố làm xong (`động từ + đối tượng + bối cảnh`, không có chữ AI): Theo dõi ngân sách và kiểm soát chi tiêu hằng ngày để không bị hụt tiền sinh hoạt vào tuần cuối tháng.
+- Hôm nay họ giải bằng gì, hỏng ở đâu, vì sao chưa bỏ: Dùng app ngân hàng / sổ tay / Excel, nhưng app chỉ báo động khi đã chạm 100% hạn mức hoặc đưa thông báo chung chung không chỉ rõ cần cắt giảm khoản nào, dẫn đến cuối tháng vẫn bị lố và mất thời gian rà soát.
+- Pain (KHÔNG chữ AI): Nhân viên văn phòng trẻ có đặt hạn mức chi tiêu tháng trên ví/app — chi tiêu hằng ngày vào các khoản nhỏ lặp lại mà không theo dõi tốc độ tiêu lũy kế giữa tháng — chỉ nhận biết khi đã tiêu lố hoặc khi nhận cảnh báo quá muộn — cuối tháng bị hụt tiền sinh hoạt và phải rút tiền tiết kiệm bù vào.
+- Bằng chứng — số chính + kết luận (chi tiết: `evidence/summary.md`): Đào dữ liệu 159 review (41/159 gặp pain, trong đó 9/159 thiếu dự báo sớm) kết hợp phỏng vấn 3/3 người đều bị tiêu lố 1,2–2,2 triệu từ tuần thứ 3, mất 20–60 phút rà sao kê và phải rút 500k–1,5 triệu tiền tiết kiệm bù vào.
 
 ## §2. Impact & quyết định chọn *(guide 1.3 — phần việc của Lê Anh Sơn)*
 
 | Hướng | Bao nhiêu người gặp | Bao nhiêu lần / tháng | Mỗi lần tốn gì | Impact / tháng | Làm kịp không | Chọn? |
 |---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+| 1. Cảnh báo sớm giữa tháng + Gợi ý cắt giảm chi tiết | 700 (nhân viên văn phòng) | 1–2 lần | 1,5 triệu + 40 phút rà soát | ~1,05 tỷ VNĐ | Kịp (dùng code rule + AI gợi ý) | **Có** |
+| 2. Tự động khóa thẻ / chặn giao dịch khi tiêu nhanh | 700 | 1 lần | Bất tiện, gián đoạn thanh toán | Cao nhưng gây ức chế | Kịp | Không |
+| 3. Giữ nguyên cảnh báo truyền thống (chỉ báo khi chạm 100%) | 700 | 1–2 lần | 1,5 triệu + hụt tiền tiết kiệm | ~1,05 tỷ VNĐ (nhưng không giải quyết được) | Kịp | Không |
 
-- **Impact / tháng** của hướng chọn = __ người × __ lần × __ = __ — nguồn từng thừa số: __
-- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): __
-- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8): __
+- **Impact / tháng** của hướng chọn = 700 người × 1 lần × 1.500.000đ = 1.050.000.000 VNĐ — nguồn từng thừa số: Số nhân viên văn phòng (quy mô giả định cơ sở), số lần lố ngân sách/tháng (phỏng vấn P1-P3), mức tiền thâm hụt trung bình (phỏng vấn P1-P3: rút 500k-1,5tr tiết kiệm + lố 1,2-2,2tr).
+- Hướng ĐÃ LOẠI + vì sao (giữ lại, đừng xoá): Hướng 2 (khóa thẻ/chặn giao dịch) bị loại vì gây gián đoạn và ức chế cho người dùng; Hướng 3 (giữ nguyên cảnh báo 100%) bị loại vì báo quá muộn, không giúp phòng bệnh.
+- Số lần / tháng của từng kiểu người dùng (dùng cho persona ở §8): Dùng ít (4 lần/tháng), dùng vừa (10 lần/tháng), dùng nhiều (20 lần/tháng).
 
 ## §3. Giải pháp tương tự *(guide 2.1 — phần việc của Hoàng Nguyên Long)*
 - **Tính năng Ngân sách trên Money Lover / MoMo:**
