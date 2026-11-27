@@ -1,0 +1,38 @@
+{
+  "user_sinh_vien": {
+    "label": "Sinh viên",
+    "categories": {
+      "an_uong": {"name": "Ăn uống", "limit": 2100000, "essential": false},
+      "ca_phe_tra_sua": {"name": "Cà phê & Trà sữa", "limit": 400000, "essential": false},
+      "di_chuyen": {"name": "Di chuyển", "limit": 500000, "essential": false},
+      "mua_sam": {"name": "Mua sắm online", "limit": 700000, "essential": false},
+      "tien_nha": {"name": "Tiền thuê nhà", "limit": 1600000, "essential": true},
+      "dien_nuoc": {"name": "Điện nước & Internet", "limit": 350000, "essential": true},
+      "thuoc_men": {"name": "Y tế & Thuốc men", "limit": 350000, "essential": true}
+    }
+  },
+  "user_van_phong": {
+    "label": "Nhân viên văn phòng trẻ",
+    "categories": {
+      "an_uong": {"name": "Ăn uống", "limit": 3000000, "essential": false},
+      "ca_phe_tra_sua": {"name": "Cà phê & Trà sữa", "limit": 800000, "essential": false},
+      "di_chuyen": {"name": "Di chuyển", "limit": 1000000, "essential": false},
+      "mua_sam": {"name": "Mua sắm online", "limit": 1500000, "essential": false},
+      "tien_nha": {"name": "Tiền thuê nhà", "limit": 4500000, "essential": true},
+      "dien_nuoc": {"name": "Điện nước & Internet", "limit": 600000, "essential": true},
+      "thuoc_men": {"name": "Y tế & Thuốc men", "limit": 500000, "essential": true}
+    }
+  },
+  "user_gia_dinh": {
+    "label": "Hộ gia đình",
+    "categories": {
+      "an_uong": {"name": "Ăn uống", "limit": 8000000, "essential": false},
+      "ca_phe_tra_sua": {"name": "Cà phê & Trà sữa", "limit": 1000000, "essential": false},
+      "di_chuyen": {"name": "Di chuyển", "limit": 2000000, "essential": false},
+      "mua_sam": {"name": "Mua sắm online", "limit": 3000000, "essential": false},
+      "tien_nha": {"name": "Tiền thuê nhà", "limit": 7000000, "essential": true},
+      "dien_nuoc": {"name": "Điện nước & Internet", "limit": 1800000, "essential": true},
+      "thuoc_men": {"name": "Y tế & Thuốc men", "limit": 1500000, "essential": true}
+    }
+  }
+}
