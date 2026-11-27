@@ -6,7 +6,7 @@
 
 - Tên nhóm: Ricons
 - Lớp: L3A
-- Track: A
+- Track: E
 - Link repo: https://github.com/longhn-0108/K5-Day15-L3A-Ricons
 
 | STT | Họ và tên          | Mã học viên | Vai trò       | Phần việc chính                                           |
