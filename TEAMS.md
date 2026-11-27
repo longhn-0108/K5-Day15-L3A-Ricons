@@ -9,12 +9,12 @@
 - Track: E
 - Link repo: https://github.com/longhn-0108/K5-Day15-L3A-Ricons
 
-| STT | Họ và tên          | Mã học viên | Vai trò       | Phần việc chính                                           |
-| --- | --------------------- | -------------- | -------------- | ------------------------------------------------------------ |
-| 1   | Hoàng Nguyên Long   | 2A202603476    | Đội trưởng | Thiết kế giải pháp, nối model AI và điều phối chung |
-| 2   | Lê Anh Sơn          | 2A202603440    | Thành viên   | Đào review công khai và phỏng vấn người dùng      |
-| 3   | Lưu Văn Việt Đức | 2A202603445    | Thành viên   | Xây dựng bộ câu thử benchmark và chấm đánh giá     |
-| 4   | Nguyễn Quang Hiệp   | 2A202603509    | Thành viên   | Mô phỏng chi phí, thiết kế slide và video demo         |
+| STT | Họ và tên | Mã học viên | Vai trò | Phần việc chính |
+|---|---|---|---|---|
+| 1 | Hoàng Nguyên Long | 2A202603476 | Đội trưởng | Thiết kế kiến trúc giải pháp, lập trình bản chạy thử, kết nối model AI và điều phối chung |
+| 2 | Lê Anh Sơn | 2A202603440 | Thành viên | Nghiên cứu người dùng, phỏng vấn thực tế, đào review công khai và tính toán bảng Impact |
+| 3 | Lưu Văn Việt Đức | 2A202603445 | Thành viên | Thiết kế tiêu chí đánh giá, xây dựng dữ liệu giả lập, bộ câu thử benchmark và chấm điểm qua các lượt |
+| 4 | Nguyễn Quang Hiệp | 2A202603509 | Thành viên | Mô phỏng chi phí thực tế theo persona, tổ chức người dùng thử, thiết kế slide và quay video demo |
 
 **Quy tắc điền**
 
