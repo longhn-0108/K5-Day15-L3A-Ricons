@@ -29,7 +29,8 @@
 
 | Lệnh | Làm gì |
 |---|---|
-| `python run.py` | Chạy bản chạy thử (gõ đầu vào, nhận kết quả, kèm số lần gọi model / token) |
+| `python run.py` | Chạy bản chạy thử dòng lệnh (gõ đầu vào, nhận kết quả, kèm số lần gọi model / token) |
+| `python run.py web` | Mở giao diện Web Sổ Ngân Sách & Cảnh Báo Sớm trực quan tại `http://127.0.0.1:8000` |
 | `python run.py check` | Kiểm `eval/benchmark.csv`, `eval/metric_spec.yaml` và `TEAMS.md` |
 | `python run.py eval --try` | Thử nối model: chạy 3 câu đầu → `eval/run-try.csv` |
 | `python run.py eval` | Chạy cả bộ qua `codebase/agent.py` → `eval/run-1.csv` |
@@ -46,4 +47,4 @@
 
 ## Dùng AI vào việc gì
 
-2–3 dòng (bắt buộc): nhóm dùng công cụ AI nào để làm gì, người kiểm lại phần nào. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md).
+Nhóm sử dụng Coding Agent để hỗ trợ viết khung công cụ Python (`codebase/`), script thống kê review (`evidence/count.py`), giao diện web chạy thử và soạn nháp biến thể câu chữ cho các câu thử `tu_viet`. Toàn bộ phỏng vấn người dùng (`P1–P3`), thiết kế ngưỡng cảnh báo, kiểm chứng tổng tiền theo ngày trong dữ liệu `synthetic` và chấm điểm `pass` qua các lượt đều do các thành viên trực tiếp thực hiện và đối chiếu thủ công. Chi tiết: [docs/ai-usage.md](docs/ai-usage.md).

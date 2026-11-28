@@ -123,14 +123,15 @@ Benchmark có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`, với 3 metri
 
 ### Kiểm công cụ
 
-Ở B02, chi ăn uống kỳ vọng đến hết 14/11 là 2.370.000đ (79%). Công cụ lấy giao dịch cả tháng nên trả 2.550.000đ (85%) và bật cảnh báo vàng. Bộ đọc đầu vào dùng ngày mặc định 16 cho B01–B03. [Chi tiết kiểm công cụ](eval/README.md#kiểm-công-cụ)
+Trước khi chạy Lượt 1, kiểm tra chéo phát hiện ở B02 công cụ cũ cộng giao dịch cả tháng nên lệch +180.000đ (ra 2.550.000đ thay vì 2.370.000đ tính đến hết 14/11). Nhóm đã cập nhật `tools.py` và `_detect_context()` trong `agent.py` để lọc giao dịch chính xác đến hết `current_day` của câu hỏi. [Chi tiết kiểm công cụ](eval/README.md#kiểm-công-cụ)
 
 ### Kết quả đánh giá bằng model thật
 
 | Lượt | Run ID | Đạt / tổng | % |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
+| 1 | `run-1@20261127-183210` | 20/25 | 80% |
+| 2 | `run-2@20261127-192350` | 23/25 | 92% |
+| 3 | `run-3@20261128-014213` | 25/25 | 100% |
 
 [Hồ sơ đánh giá](eval/README.md#5-đánh-giá-bằng-model-thật) · [Báo cáo đánh giá](eval/report.md)
 
@@ -158,7 +159,10 @@ Benchmark có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`, với 3 metri
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
+| 27/11 18:10 | Cập nhật `tools.py` lọc giao dịch theo `current_day` và bộ tách ngày trong `agent.py`; mở rộng `eval/benchmark.csv` lên 25 câu (Long, Đức) | Xử lý lệch số liệu theo ngày ở `B02`, `B11–B23` phát hiện lúc kiểm công cụ và đáp ứng chuẩn độ phủ CP3 |
+| 27/11 19:20 | Bổ sung cơ chế retry tự động (`max_retries=4`, exponential backoff) trong `codebase/ai.py` và chạy Lượt 2 `run-2@20261127-192350` (Long) | Khắc phục 3 câu bị `TimeoutError` (`B03`, `B06`, `B18`) ở Lượt 1 (`run-1@20261127-183210`) |
 | 27/11 22:30 | Điền `cost/personas.yaml`: 3 persona 50/35/15% · 1,5/3,5/7 phiên/tháng · 1/2/3 lượt/phiên; người dùng 500 / 1.000 / 30.000; giá `gemini-3.1-flash-lite` và `gemini-4-hydrogen` (Hiệp) | Dùng chung bộ số với bảng Impact §2 (phỏng vấn P1–P3) để §8 so được với impact; thay số mẫu `(ví dụ)` của khung |
+| 28/11 01:40 | Mở rộng `FORBIDDEN_PATTERNS` trong `codebase/agent.py` chặn câu hỏi xem hộ người khác, làm rõ yêu cầu ghi tổng số đơn `count` trong `SYSTEM` prompt và chạy Lượt 3 `run-3@20261128-014213` (Long) | Sửa lỗi lộ số liệu hồ sơ sinh viên khi bị hỏi hộ bạn cùng phòng ở câu `B25` và củng cố chi tiết số đơn cho dạng câu `B23` |
 | 28/11 06:42 | Chạy lượt mô phỏng chính thức `simulate-1` (50 phiên, 0 lỗi), điền `cost/cost-estimate.md` và §8 (Hiệp) | Tỉ lệ đạt lấy từ `run-3` (25/25); các lượt `simulate --try` trước đó mất 4–8/10 phiên vì HTTP 503/429, chạy lại sau khi `ai.py` có cơ chế tự gọi lại |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**

@@ -9,7 +9,7 @@
 |---|---|---|
 | Đào data (≥30 review công khai: x/N, %, cách đếm chạy lại được, ≥5 ví dụ) | ☑ *(159 review thực chất / 300 review thô)* | `evidence/data-mining.md`, `evidence/count.py` |
 | Phỏng vấn (≥3 người ngoài nhóm, đúng người dùng) | ☑ *(3/3 người)* | `evidence/interviews/P1.md`, `P2.md`, `P3.md` |
-| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ *(chưa làm — nếu không làm sẽ xóa thư mục trước CP3)* | `evidence/survey/` |
+| Khảo sát (≥20 người ngoài nhóm, đúng người dùng) | ☐ *(không thực hiện — đã đạt ngưỡng bằng đào data + phỏng vấn)* | — |
 
 ## 2. Số chính
 

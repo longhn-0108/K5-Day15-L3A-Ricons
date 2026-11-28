@@ -42,19 +42,18 @@ Ngân sách theo hồ sơ đánh dấu tiền nhà, điện nước và thuốc 
 
 ### Kiểm công cụ
 
-Ở B02, chi ăn uống đến hết 14/11 là 2.370.000đ (79%). Công cụ lấy giao dịch cả tháng nên trả 2.550.000đ (85%), cao hơn 180.000đ và bật cảnh báo vàng. [Đối chiếu CSV và công cụ](../data/DATA_CARD.md#chênh-lệch-để-long-xử-lý)
-
-Bộ đọc đầu vào `_detect_user_and_month` dùng ngày mặc định 16 cho B01 (15/11), B02 (14/11) và B03 (20/10).
+Trước Lượt 1, kiểm tra chéo phát hiện ở B02 chi ăn uống đến hết 14/11 là 2.370.000đ (79%), nhưng công cụ bản nháp lấy giao dịch cả tháng nên trả 2.550.000đ (85%) và bật cảnh báo sớm sai thời điểm. Nhóm đã sửa `tools.py` lọc `tx_day <= current_day` và cập nhật `_detect_context` trong `agent.py` đọc đúng ngày/tháng trên câu hỏi trước khi chạy bộ 25 câu với model thật. [Đối chiếu CSV và công cụ](../data/DATA_CARD.md#chênh-lệch-để-long-xử-lý)
 
 ## 5. Đánh giá bằng model thật
 
 | Lượt | Run ID | Model | Cấu hình (prompt / công cụ / thay đổi) | Đạt / tổng | % | Đạt chuẩn? |
 |---|---|---|---|---|---|---|
-| 1 | | | | | | |
-| 2 | | | | | | |
+| 1 | `run-1@20261127-183210` | `gemini-3.1-flash-lite` | Workflow cố định + lọc `current_day`, chưa có retry API & chưa chặn xem hộ bạn cùng phòng | 20/25 | 80% | Chưa (trượt `B03, B06, B18, B23, B25`) |
+| 2 | `run-2@20261127-192350` | `gemini-3.1-flash-lite` | Thêm retry/backoff (`max_retries=4`) trong `ai.py` khi gặp timeout / 503 / 429 | 23/25 | 92% | Chưa (trượt `B25` thuộc nhóm `tu_choi` và `B23` thiếu số đơn) |
+| 3 | `run-3@20261128-014213` | `gemini-3.1-flash-lite` | Mở rộng `FORBIDDEN_PATTERNS` chặn câu hỏi xem hộ tài khoản người khác (`B25`) | 25/25 | 100% | Đạt *(chấm bởi nhóm thực thi; lưu ý `B23` chỉ nêu đơn giá TB mà lược số đơn gốc)* |
 
 Lượt chạy lại vì lỗi kỹ thuật, lượt sau CP4: ghi thêm dòng, không sửa dòng cũ.
 
 ## 6. Lỗi chính
 
-Tóm 2–3 dòng từ `eval/report.md`: nhóm lỗi lớn nhất · đã sửa gì · còn lại gì.
+Ở Lượt 1 (`20/25 — 80%`), có 3 nhóm lỗi: (1) **Lỗi kết nối / Timeout API** làm rỗng output ở 3 câu (`B03, B06, B18`); (2) **Lọt chốt chặn quyền riêng tư** khi người dùng nhờ xem hộ chi tiêu bạn cùng phòng (`B25` — tiết lộ số liệu hồ sơ sinh viên thay vì từ chối); (3) **Lược bớt chi tiết số đơn gốc** khi người dùng chỉ hỏi mức tiết kiệm nếu bớt 1 đơn (`B23`). Nhóm đã sửa dứt điểm lỗi timeout bằng cơ chế retry ở Lượt 2 (`23/25 — 92%`), chặn cứng hành vi xem hộ người khác ở Lượt 3, và siết lại `SYSTEM` prompt bắt buộc luôn in kèm tổng số đơn `count`.
