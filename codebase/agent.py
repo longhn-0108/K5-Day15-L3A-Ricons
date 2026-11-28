@@ -30,14 +30,22 @@ FORBIDDEN_PATTERNS = [
 ]
 
 
-def _detect_context(text: str):
-    """Trích xuất (user_id, month, current_day) từ câu hỏi tiếng Việt."""
+def _detect_context(
+    text: str,
+    default_user_id: str = "user_van_phong",
+    default_month: str = "2026-11",
+    default_day: int = 15,
+):
+    """Trích xuất (user_id, month, current_day) từ câu hỏi tiếng Việt (ưu tiên câu chữ, thiếu thì lấy ngữ cảnh mặc định)."""
     low = text.lower()
-    user_id = "user_van_phong"
     if "sinh viên" in low or "user_sinh_vien" in low:
         user_id = "user_sinh_vien"
     elif "gia đình" in low or "user_gia_dinh" in low:
         user_id = "user_gia_dinh"
+    elif "văn phòng" in low or "user_van_phong" in low:
+        user_id = "user_van_phong"
+    else:
+        user_id = default_user_id or "user_van_phong"
 
     month = None
     day = None
@@ -57,6 +65,13 @@ def _detect_context(text: str):
             day = int(m_dmy.group(1))
             mm = int(m_dmy.group(2))
             month = f"{m_dmy.group(3)}-{mm:02d}"
+
+    if month is None:
+        m_dm_short = re.search(r"\b(\d{1,2})/(\d{1,2})\b", low)
+        if m_dm_short and int(m_dm_short.group(2)) <= 12:
+            day = int(m_dm_short.group(1))
+            mm = int(m_dm_short.group(2))
+            month = f"2026-{mm:02d}"
 
     if month is None:
         m_ym = re.search(r"\b(20\d{2})-(\d{1,2})\b", low)
@@ -80,15 +95,20 @@ def _detect_context(text: str):
         elif "cuối tháng" in low:
             day = 28
         else:
-            day = 15
+            day = int(default_day) if default_day else 15
 
     if month is None:
-        month = "2026-11"
+        month = default_month or "2026-11"
 
     return user_id, month, day
 
 
-def answer(text: str) -> dict:
+def answer(
+    text: str,
+    default_user_id: str = "user_van_phong",
+    default_month: str = "2026-11",
+    default_day: int = 15,
+) -> dict:
     clean = (text or "").strip()
     if len(clean) < 12 and not re.search(r"\d", clean):
         note("dừng: đầu vào quá ngắn/mơ hồ -> hỏi lại tháng và nhóm chi tiêu theo G10")
@@ -140,7 +160,12 @@ def answer(text: str) -> dict:
                 )
             }
 
-    user_id, month, day = _detect_context(clean)
+    user_id, month, day = _detect_context(
+        clean,
+        default_user_id=default_user_id,
+        default_month=default_month,
+        default_day=default_day,
+    )
     if "tạm tắt" in low:
         res = log_user_action(user_id=user_id, category="an_uong", action="tam_tat")
         note("dừng: đã ghi nhận thao tác tạm tắt cảnh báo")
