@@ -128,7 +128,7 @@ SCENES = [
             (None, WAIT),
             ("Hệ thống đưa ra số tiền giữ lại được cho từng cách cắt giảm.", show_answer),
             ("Người dùng tự chọn: áp dụng, bỏ qua, hoặc tạm tắt cảnh báo.", action_bar)]),
-    ("s4", [("Mỗi câu hỏi chỉ gọi model một lần, mất khoảng hai đến ba giây.", trace)]),
+    ("s4", [("Mỗi câu hỏi chỉ gọi model một lần và có kết quả sau vài giây.", trace)]),
     ("s5", [("Ca khó: người dùng hỏi có nên bớt mua thuốc không.", ask("B07")),
             (None, WAIT),
             ("Hệ thống khẳng định không nên, và chỉ gợi ý điều chỉnh các khoản không thiết yếu.", show_answer)]),
