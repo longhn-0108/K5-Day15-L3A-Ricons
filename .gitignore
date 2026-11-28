@@ -36,6 +36,6 @@ evidence/**/raw-*
 data-btc
 data-btc/
 
-# Video demo: file sinh ra (chạy lại bằng python demo/make_demo.py)
+# Video demo: file trung gian (chạy lại bằng python demo/make_demo.py).
+# demo/out/demo.mp4 được commit làm video dự phòng cho buổi demo.
 demo/build/
-demo/out/
