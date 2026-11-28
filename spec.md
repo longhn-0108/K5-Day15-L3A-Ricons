@@ -154,7 +154,7 @@ Trước khi chạy Lượt 1, kiểm tra chéo phát hiện ở B02 công cụ 
 
 ## §8. Chi phí khi dùng thật *(guide 4.2 — phần việc của Nguyễn Quang Hiệp)*
 - Persona + giá: `cost/personas.yaml` (3 persona theo §2: 50% dùng ít · 1,5 phiên/tháng, 35% dùng vừa · 3,5, 15% dùng nhiều · 7; giá `gemini-3.1-flash-lite` 0,25/1,50 và `gemini-4-hydrogen` 1,50/7,50 USD / 1M token, xem 27/11/2026) · lượt mô phỏng: `cost/simulate-1.csv` (50 phiên, 0 lỗi, run ID `simulate-1@20261128-064255`)
-- Chi phí / task thành công: $0.0014 (model `gemini-3.1-flash-lite`) · $0.0076 (model `gemini-4-hydrogen`) — tỉ lệ đạt lấy từ lượt `run-3` (25/25); token đo trên `gemini-3.1-flash-lite`
+- Chi phí / task thành công: **$0.0015** theo tỉ lệ đạt Lượt 2 `23/25 = 92%` (`$0.0014` nếu tính theo `run-3` `25/25`) với model `gemini-3.1-flash-lite` · **$0.0083** theo Lượt 2 (`$0.0076` theo `run-3`) với model `gemini-4-hydrogen`; token đo thật trên `gemini-3.1-flash-lite`, đơn giá khớp `further-reading/model-prices.md` (25/11/2026)
 - Chi phí / tháng ở quy mô thật (`gemini-3.1-flash-lite`): thấp (500 người) $2.46 · cơ sở (1.000) $4.92 · cao (30.000) $147.49 → chi tiết `cost/cost-estimate.md`
 - So với impact / người / tháng (§2): đáng làm không, vì sao: Đáng làm — chi phí $0.0049 / người / tháng (chưa tới 1 cent; model đắt hơn $0.0272) so với ~42 phút rà sao kê và 280.000–420.000đ giữ lại mỗi người mỗi tháng.
 
@@ -182,6 +182,7 @@ Trước khi chạy Lượt 1, kiểm tra chéo phát hiện ở B02 công cụ 
 | 27/11 22:30 | Điền `cost/personas.yaml`: 3 persona 50/35/15% · 1,5/3,5/7 phiên/tháng · 1/2/3 lượt/phiên; người dùng 500 / 1.000 / 30.000; giá `gemini-3.1-flash-lite` và `gemini-4-hydrogen` (Hiệp) | Dùng chung bộ số với bảng Impact §2 (phỏng vấn P1–P3) để §8 so được với impact; thay số mẫu `(ví dụ)` của khung |
 | 28/11 01:40 | Mở rộng `FORBIDDEN_PATTERNS` trong `codebase/agent.py` chặn câu hỏi xem hộ người khác, làm rõ yêu cầu ghi tổng số đơn `count` trong `SYSTEM` prompt và chạy Lượt 3 `run-3@20261128-014213` (Long) | Sửa lỗi lộ số liệu hồ sơ sinh viên khi bị hỏi hộ bạn cùng phòng ở câu `B25` và củng cố chi tiết số đơn cho dạng câu `B23` |
 | 28/11 06:42 | Chạy lượt mô phỏng chính thức `simulate-1` (50 phiên, 0 lỗi), điền `cost/cost-estimate.md` và §8 (Hiệp) | Tỉ lệ đạt lấy từ `run-3` (25/25); các lượt `simulate --try` trước đó mất 4–8/10 phiên vì HTTP 503/429, chạy lại sau khi `ai.py` có cơ chế tự gọi lại |
+| 28/11 09:18 | Bổ sung quy đổi chi phí / task thành công theo tỉ lệ Lượt 2 (`92%` → `$0.0015`) trong `cost/cost-estimate.md` & §8, cập nhật ghi chú đã sửa lọc ngày trong `DATA_CARD.md`, và thêm chốt chặn từ khóa lừa đảo/tra soát/OTP trong `agent.py` (Long) | Đáp ứng quy tắc không chia cho 100% ở Guide 4.2, tránh hiểu nhầm ghi chú nháp cũ ở `DATA_CARD.md` và chặn câu hỏi ngoài phạm vi an toàn Track E khi demo trực tiếp |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 

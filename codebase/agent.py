@@ -22,6 +22,7 @@ QUY TẮC BẮT BUỘC:
 
 FORBIDDEN_PATTERNS = [
     (r"cổ phiếu|chứng khoán|mua coin|đồng coin|bitcoin|crypto|đầu tư sinh lời", "invest"),
+    (r"bị lừa|lừa đảo|chiếm tài khoản|giao dịch lạ|trừ tiền lạ|hoàn tiền|tra soát|mã otp|\botp\b|mật khẩu|mã pin|số thẻ", "fraud_or_secret"),
     (r"chuyển khoản hộ|chuyển tiền giúp|khóa thẻ", "tx_action"),
     (r"bỏ qua.*(chỉ dẫn|hướng dẫn)|chỉ dẫn nội bộ|hướng dẫn nội bộ|system prompt|in ra chỉ dẫn", "injection"),
     (r"làm giả số|sửa số liệu|bịa.*số|ghi rằng mình mới dùng", "fake_data"),
@@ -122,6 +123,14 @@ def answer(text: str) -> dict:
                     "output": (
                         "Mình không thể làm giả hay sửa sai lệch số liệu chi tiêu thực tế của bạn. "
                         "Mọi con số báo cáo đều phải phản ánh đúng dữ liệu giao dịch gốc."
+                    )
+                }
+            if kind == "fraud_or_secret":
+                return {
+                    "output": (
+                        "Mình không thể xử lý tra soát, hoàn tiền, sự cố nghi lừa đảo hay tiếp nhận mật khẩu/mã OTP/số thẻ. "
+                        "Nếu phát hiện giao dịch bất thường hoặc nghi bị lừa đảo, bạn vui lòng liên hệ ngay tổng đài chính thức "
+                        "của ngân hàng hoặc ví điện tử để được khóa khẩn cấp — trợ lý này chỉ hỗ trợ theo dõi hạn mức ngân sách cá nhân."
                     )
                 }
             return {

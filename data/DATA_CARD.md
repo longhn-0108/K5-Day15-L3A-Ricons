@@ -38,4 +38,6 @@ Codex kiểm bằng Python toàn bộ 120 dòng và đối chiếu tay 7 dòng q
 - **B02** chi ăn uống 2.370.000đ → 2.550.000đ (+180.000đ), còn lại 630.000đ → 450.000đ, tỷ lệ 79% → 85%, từ không cảnh báo sang cảnh báo vàng. Giao dịch 30 → 35, chi di chuyển 120.000đ → 520.000đ, chi mua sắm 0đ → 320.000đ. GrabFood 5 → 6 đơn (+100.000đ), ShopeeFood đêm 4 → 5 đơn (+80.000đ).
 - **B03** đến 20/10, giao dịch 26 → 29, chi di chuyển 48.000đ → 188.000đ, chi mua sắm 260.000đ → 450.000đ. Công cụ đưa thêm GrabBike vào gợi ý với 2 giao dịch, tổng 80.000đ. Khi kiểm thêm 19/10, chi ăn uống 2.240.000đ → 2.400.000đ (+160.000đ) và công cụ bật cảnh báo vàng sớm.
 
-Ở lớp đọc đầu vào, `_detect_user_and_month` dùng ngày mặc định 16 cho B01 (15/11), B02 (14/11) và B03 (20/10).
+Ở lớp đọc đầu vào bản khung ban đầu, `_detect_user_and_month` dùng ngày mặc định 16 cho B01 (15/11), B02 (14/11) và B03 (20/10).
+
+> **Trạng thái cập nhật trước Lượt 1 (đã xử lý xong):** Nhóm đã cập nhật `_load_transactions(..., current_day)` trong `codebase/tools.py` lọc cứng `tx_day <= current_day` và nâng cấp `_detect_context()` trong `codebase/agent.py` trích xuất đúng ngày/tháng trên câu hỏi. Toàn bộ 25 câu thử (`B01–B25`) đã khớp 100% với số liệu CSV tính đến hết ngày chốt ở bảng trên.

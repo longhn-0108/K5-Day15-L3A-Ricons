@@ -16,8 +16,8 @@
 
   Nguồn: `spec.md` §2, nền là tần suất tiêu lố trong phỏng vấn P1 (~2 lần/tháng), P2 (~0,67), P3 (~1) ở `evidence/summary.md`. Số phiên lấy giữa khoảng của §2 (1–2, 3–4, 6–8). Tỉ lệ 50/35/15% và phần cộng thêm ngoài số lần tiêu lố là *(tự ước tính)*.
 - **Số người dùng thật** 3 kịch bản: thấp 500 · cơ sở 1.000 · cao 30.000. Nguồn: cơ sở khớp `spec.md` §2 (quy mô thử nghiệm, *tự ước tính*); thấp = một nửa cơ sở *(tự ước tính)*; cao = 1% của "hơn 3 triệu người dùng tính năng Quản lý chi tiêu trên MoMo mỗi tháng" ([blog MoMo](https://www.momo.vn/tai-chinh/blog/app-quan-ly-chi-tieu-5166), đăng 14/10/2026, xem 27/11/2026; số MoMo tự công bố), tỉ lệ 1% *(tự ước tính)*.
-- **Giá** ≥2 mức model (USD / 1 triệu token, gói trả phí, Standard): `gemini-3.1-flash-lite` vào 0,25 · ra 1,50 · `gemini-4-hydrogen` vào 1,50 · ra 7,50. Nguồn: [trang giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing) (chuyển tới aistudio.google.com/docs/pricing), xem 27/11/2026; giá ra đã gồm token suy nghĩ. *(Chưa đối chiếu với `further-reading/model-prices.md` của repo đề.)*
-- **Tỉ lệ đạt** dùng để tính: 25/25 (100%) — lượt `run-3` (run ID `run-3@20261128-014213`, `gemini-3.1-flash-lite`, chấm bằng `python run.py score eval/run-3.csv`)
+- **Giá** ≥2 mức model (USD / 1 triệu token, gói trả phí, Standard): `gemini-3.1-flash-lite` vào 0,25 · ra 1,50 · `gemini-4-hydrogen` vào 1,50 · ra 7,50. Nguồn: [trang giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing) (chuyển tới aistudio.google.com/docs/pricing), xem 27/11/2026; giá ra đã gồm token suy nghĩ. *(Đã đối chiếu khớp 100% với bảng giá chuẩn `further-reading/model-prices.md` ngày 25/11/2026 của BTC).*
+- **Tỉ lệ đạt** dùng để tính: bảng gốc từ `simulate-1-summary.md` lấy theo lượt `run-3` (`25/25 = 100%`, `run-3@20261128-014213`); đối chiếu chuẩn Guide 4.2 theo tỉ lệ đạt thật của **Lượt 2 (`23/25 = 92%`, `run-2@20261127-192350`)** được quy đổi ngay bên dưới bảng.
 - Đo token trên model `gemini-3.1-flash-lite`, tính giá model `gemini-3.1-flash-lite` và `gemini-4-hydrogen`
 
 ## 2. Kết quả mô phỏng
@@ -45,7 +45,11 @@ python run.py simulate --wait 5 --rate-from eval/run-3.csv
 
 Token đo trên model `gemini-3.1-flash-lite`, tính giá cho cả hai model; model khác bộ tách token thì số token thật có thể lệch.
 
-Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**.
+Chi phí / task thành công = chi phí trung bình mỗi phiên ÷ tỉ lệ đạt — **không coi như đạt 100%**:
+- **Tính theo tỉ lệ đạt thật của Lượt 2 (`23/25 = 92%`, `run-2@20261127-192350` — chuẩn Guide 4.2):**
+  - `gemini-3.1-flash-lite`: `$0.0014 ÷ 0.92 ≈` **`$0.0015` / task thành công** (`$0.00086` / câu hỏi đạt).
+  - `gemini-4-hydrogen`: `$0.0076 ÷ 0.92 ≈` **`$0.0083` / task thành công** (`$0.0048` / câu hỏi đạt).
+  - *(Tổng chi phí / tháng ở 3 kịch bản 500 · 1.000 · 30.000 người giữ nguyên `$2.46 · $4.92 · $147.49` vì tính trên tổng phiên phát sinh thực tế).*
 
 ## 3. So với impact
 
