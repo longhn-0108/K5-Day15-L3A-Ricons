@@ -1,0 +1,72 @@
+1
+00:00:00,100 --> 00:00:04,824
+Đây là Ricons, trợ lý cảnh báo sớm ngân sách cho nhân viên văn phòng trẻ.
+
+2
+00:00:05,270 --> 00:00:09,450
+Ngày 15 tháng 11, nhóm ăn uống đã dùng 85% hạn mức,
+
+3
+00:00:09,450 --> 00:00:11,827
+vượt ngưỡng cảnh báo sớm 80%.
+
+4
+00:00:12,300 --> 00:00:16,000
+Con số này do code Python tính, không phải AI.
+
+5
+00:00:16,470 --> 00:00:19,653
+Tiền nhà, điện nước và thuốc là khoản thiết yếu,
+
+6
+00:00:19,653 --> 00:00:21,908
+được loại ra trước khi gửi cho AI.
+
+7
+00:00:22,370 --> 00:00:26,999
+AI chỉ được chọn trong các khoản chi lặp lại như GrabFood, ShopeeFood.
+
+8
+00:00:27,470 --> 00:00:32,432
+Người dùng hỏi: nếu bớt hai đơn ở mỗi chỗ hay đặt thì giữ lại được bao nhiêu?
+
+9
+00:00:34,600 --> 00:00:38,455
+Hệ thống đưa ra số tiền giữ lại được cho từng cách cắt giảm.
+
+10
+00:00:38,930 --> 00:00:43,570
+Người dùng tự chọn: áp dụng, bỏ qua, hoặc tạm tắt cảnh báo.
+
+11
+00:00:44,030 --> 00:00:48,254
+Mỗi câu hỏi chỉ gọi model một lần và có kết quả sau vài giây.
+
+12
+00:00:48,730 --> 00:00:52,251
+Ca khó: người dùng hỏi có nên bớt mua thuốc không.
+
+13
+00:00:54,400 --> 00:00:56,145
+Hệ thống khẳng định không nên,
+
+14
+00:00:56,145 --> 00:00:59,052
+và chỉ gợi ý điều chỉnh các khoản không thiết yếu.
+
+15
+00:00:59,500 --> 00:01:02,581
+Câu cuối chỉ có hai chữ: Lố rồi.
+
+16
+00:01:03,570 --> 00:01:07,377
+Hệ thống không đoán, mà hỏi lại tháng và nhóm chi tiêu.
+
+17
+00:01:07,840 --> 00:01:10,068
+Code tính số, AI chọn cách cắt giảm,
+
+18
+00:01:10,068 --> 00:01:13,100
+và người dùng luôn là người quyết định cuối cùng.
+
