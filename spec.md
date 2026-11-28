@@ -135,10 +135,10 @@ Benchmark có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`, với 3 metri
 [Hồ sơ đánh giá](eval/README.md#5-đánh-giá-bằng-model-thật) · [Báo cáo đánh giá](eval/report.md)
 
 ## §8. Chi phí khi dùng thật *(guide 4.2 — phần việc của Nguyễn Quang Hiệp)*
-- Persona + giá: `cost/personas.yaml` · lượt mô phỏng: `cost/simulate-__.csv` (__ phiên)
-- Chi phí / task thành công: __ (model __) · __ (model __)
-- Chi phí / tháng ở quy mô thật: thấp __ · cơ sở __ · cao __ → chi tiết `cost/cost-estimate.md`
-- So với impact / người / tháng (§2): đáng làm không, vì sao: __
+- Persona + giá: `cost/personas.yaml` (3 persona theo §2: 50% dùng ít · 1,5 phiên/tháng, 35% dùng vừa · 3,5, 15% dùng nhiều · 7; giá `gemini-3.1-flash-lite` 0,25/1,50 và `gemini-4-hydrogen` 1,50/7,50 USD / 1M token, xem 27/11/2026) · lượt mô phỏng: `cost/simulate-1.csv` (50 phiên, 0 lỗi, run ID `simulate-1@20261128-064255`)
+- Chi phí / task thành công: $0.0014 (model `gemini-3.1-flash-lite`) · $0.0076 (model `gemini-4-hydrogen`) — tỉ lệ đạt lấy từ lượt `run-3` (25/25); token đo trên `gemini-3.1-flash-lite`
+- Chi phí / tháng ở quy mô thật (`gemini-3.1-flash-lite`): thấp (500 người) $2.46 · cơ sở (1.000) $4.92 · cao (30.000) $147.49 → chi tiết `cost/cost-estimate.md`
+- So với impact / người / tháng (§2): đáng làm không, vì sao: Đáng làm — chi phí $0.0049 / người / tháng (chưa tới 1 cent; model đắt hơn $0.0272) so với ~42 phút rà sao kê và 280.000–420.000đ giữ lại mỗi người mỗi tháng.
 
 ## §9. Rủi ro & an toàn
 - Dữ liệu: Không thu thập hay sử dụng sao kê, lịch sử giao dịch thật của cá nhân. Dữ liệu phỏng vấn ẩn danh hoàn toàn (`P1, P2, P3`), không đưa thông tin định danh cá nhân lên API model gói miễn phí.
@@ -158,7 +158,8 @@ Benchmark có 25 câu gồm 10 `thuong`, 10 `kho` và 5 `tu_choi`, với 3 metri
 
 | Thời điểm | Đổi gì | Vì sao (trỏ về câu thử / lỗi / bằng chứng nào) |
 |---|---|---|
-|  |  |  |
+| 27/11 22:30 | Điền `cost/personas.yaml`: 3 persona 50/35/15% · 1,5/3,5/7 phiên/tháng · 1/2/3 lượt/phiên; người dùng 500 / 1.000 / 30.000; giá `gemini-3.1-flash-lite` và `gemini-4-hydrogen` (Hiệp) | Dùng chung bộ số với bảng Impact §2 (phỏng vấn P1–P3) để §8 so được với impact; thay số mẫu `(ví dụ)` của khung |
+| 28/11 06:42 | Chạy lượt mô phỏng chính thức `simulate-1` (50 phiên, 0 lỗi), điền `cost/cost-estimate.md` và §8 (Hiệp) | Tỉ lệ đạt lấy từ `run-3` (25/25); các lượt `simulate --try` trước đó mất 4–8/10 phiên vì HTTP 503/429, chạy lại sau khi `ai.py` có cơ chế tự gọi lại |
 
 **Sau CP4 (đến 23:59 Thứ Bảy 28/11)**
 
